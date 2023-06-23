@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import ArtPiecesPreview from "./ArtPiecesPreview";
 import { piece } from "../../utils/data/TestData/";
 
-test.skip("displays an image with a source attribute", () => {
+test("displays an image with a source attribute", () => {
   render(
     <ArtPiecesPreview
       image={piece.imageSource}
@@ -16,6 +16,10 @@ test.skip("displays an image with a source attribute", () => {
   const artPieceImage = screen.getByRole("img");
   expect(artPieceImage).toHaveAttribute(
     "src",
-    "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg"
+    expect.stringContaining(
+      encodeURIComponent(
+        "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg"
+      )
+    )
   );
 });
