@@ -1,10 +1,15 @@
 import ArtPiecesPreview from "../ArtPiecesPreview/ArtPiecesPreview";
+import styled from "styled-components";
+
+const List = styled.li`
+  list-style: none;
+`;
 
 export default function ArtPieces({ pieces }) {
   return (
     <>
       {pieces.map((piece) => (
-        <li key={piece.slug}>
+        <List key={piece.slug}>
           <ArtPiecesPreview
             image={piece.imageSource}
             artist={piece.artist}
@@ -12,7 +17,7 @@ export default function ArtPieces({ pieces }) {
             width={piece.dimensions.width}
             height={piece.dimensions.height}
           />
-        </li>
+        </List>
       ))}
     </>
   );
