@@ -23,3 +23,33 @@ test("displays an image with a source attribute", () => {
     )
   );
 });
+
+test("displays a title of an artPiece", () => {
+  render(
+    <ArtPiecesPreview
+      image={piece.imageSource}
+      title={piece.name}
+      artist={piece.artist}
+      width={piece.dimensions.width}
+      height={piece.dimensions.height}
+    />
+  );
+
+  const artPieceTitle = screen.getByText(/orange red and green/i);
+  expect(artPieceTitle).toBeInTheDocument();
+});
+
+test("displays the artist of the artPiece", () => {
+  render(
+    <ArtPiecesPreview
+      image={piece.imageSource}
+      title={piece.name}
+      artist={piece.artist}
+      width={piece.dimensions.width}
+      height={piece.dimensions.height}
+    />
+  );
+
+  const artPieceTitle = screen.getByText(/steve johnson/i);
+  expect(artPieceTitle).toBeInTheDocument();
+});
