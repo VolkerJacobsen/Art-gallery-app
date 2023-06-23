@@ -9,6 +9,8 @@ export default function ArtPieces({ pieces }) {
             image={piece.imageSource}
             artist={piece.artist}
             title={piece.name}
+            width={piece.dimensions.width}
+            height={piece.dimensions.height}
           />
         </li>
       ))}
