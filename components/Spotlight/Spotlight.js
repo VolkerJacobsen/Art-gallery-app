@@ -5,7 +5,7 @@ export default function Spotlight({ image, artist, width, height }) {
     <figure>
       <Image
         src={image}
-        alt={`${image} by ${artist}`}
+        alt={`An artpiece by ${artist}`}
         width={width}
         height={height}
       />
