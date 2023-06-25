@@ -9,8 +9,16 @@ const Main = styled.main`
   margin-bottom: var(--navigation-height);
 `;
 
-export default function SpotlightPage({ pieces }) {
+export default function SpotlightPage({
+  pieces,
+  handleToggleFavorite,
+  artPiecesInfo,
+}) {
   const randomArtPiece = pieces[Math.floor(Math.random() * pieces.length)];
+
+  const randomArtPieceInfo = artPiecesInfo.find(
+    (artPieceInfo) => artPieceInfo.slug === randomArtPiece.slug
+  );
 
   return (
     <Main>
@@ -22,6 +30,8 @@ export default function SpotlightPage({ pieces }) {
         artist={randomArtPiece.artist}
         width={randomArtPiece.dimensions.width}
         height={randomArtPiece.dimensions.height}
+        handleToggleFavorite={handleToggleFavorite}
+        isFavorite={randomArtPieceInfo ? randomArtPieceInfo.isFavorite : false}
       />
     </Main>
   );

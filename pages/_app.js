@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout/Layout";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import { SWRConfig } from "swr";
+import { useState } from "react";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -20,8 +20,27 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+
   const URL = "https://example-apis.vercel.app/api/art";
   const { data: pieces, error, isLoading } = useSWR(URL, fetcher);
+
+  function handleToggleFavorite(slug) {
+    console.log("favorite button clicked", artPiecesInfo);
+    setArtPiecesInfo((artPiecesInfo) => {
+      const info = artPiecesInfo.find((info) => info.slug === slug);
+
+      if (info) {
+        return artPiecesInfo.map((artPieceInfo) =>
+          artPieceInfo.slug === slug
+            ? { ...artPieceInfo, isFavorite: !artPieceInfo.isFavorite }
+            : artPieceInfo
+        );
+      }
+
+      return [...artPiecesInfo, { slug, isFavorite: true }];
+    });
+  }
 
   if (error)
     return (
@@ -37,7 +56,12 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Layout>
-        <Component {...pageProps} pieces={pieces} />
+        <Component
+          {...pageProps}
+          pieces={pieces}
+          artPiecesInfo={artPiecesInfo}
+          handleToggleFavorite={handleToggleFavorite}
+        />
       </Layout>
     </>
   );

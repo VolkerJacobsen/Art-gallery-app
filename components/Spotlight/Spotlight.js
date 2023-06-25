@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -25,19 +26,34 @@ const FigCaption = styled.figcaption`
   text-align: center;
 `;
 
-export default function Spotlight({ slug, image, artist, width, height }) {
+export default function Spotlight({
+  slug,
+  image,
+  artist,
+  width,
+  height,
+  isFavorite,
+  handleToggleFavorite,
+}) {
   return (
-    <StyledLink href={`/art-pieces/${slug}`}>
-      <Figure>
-        <StyledImage
-          src={image}
-          alt={`An artpiece by ${artist}`}
-          width={width}
-          height={height}
-          priority={true}
-        />
-        <FigCaption>{artist}</FigCaption>
-      </Figure>
-    </StyledLink>
+    <>
+      <FavoriteButton
+        isFavorite={isFavorite}
+        onToggleFavorite={handleToggleFavorite}
+        slug={slug}
+      />
+      <StyledLink href={`/art-pieces/${slug}`}>
+        <Figure>
+          <StyledImage
+            src={image}
+            alt={`An artpiece by ${artist}`}
+            width={width}
+            height={height}
+            priority={true}
+          />
+          <FigCaption>{artist}</FigCaption>
+        </Figure>
+      </StyledLink>
+    </>
   );
 }
