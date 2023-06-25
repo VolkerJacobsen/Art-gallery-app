@@ -1,5 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 
 const Figure = styled.figure`
   margin-bottom: 30px;
@@ -19,17 +25,19 @@ const FigCaption = styled.figcaption`
   text-align: center;
 `;
 
-export default function Spotlight({ image, artist, width, height }) {
+export default function Spotlight({ slug, image, artist, width, height }) {
   return (
-    <Figure>
-      <StyledImage
-        src={image}
-        alt={`An artpiece by ${artist}`}
-        width={width}
-        height={height}
-        priority={true}
-      />
-      <FigCaption>{artist}</FigCaption>
-    </Figure>
+    <StyledLink href={`/art-pieces/${slug}`}>
+      <Figure>
+        <StyledImage
+          src={image}
+          alt={`An artpiece by ${artist}`}
+          width={width}
+          height={height}
+          priority={true}
+        />
+        <FigCaption>{artist}</FigCaption>
+      </Figure>
+    </StyledLink>
   );
 }

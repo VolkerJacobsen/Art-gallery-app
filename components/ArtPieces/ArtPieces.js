@@ -12,6 +12,7 @@ export default function ArtPieces({ pieces }) {
       {pieces.map((piece, index) => (
         <ListItem key={piece.slug}>
           <ArtPiecePreview
+            slug={piece.slug}
             image={piece.imageSource}
             artist={piece.artist}
             title={piece.name}

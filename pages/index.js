@@ -17,6 +17,7 @@ export default function SpotlightPage({ pieces }) {
       <DefaultHead pageTitle="Spotlight" />
       <h1>Art Gallery</h1>
       <Spotlight
+        slug={randomArtPiece.slug}
         image={randomArtPiece.imageSource}
         artist={randomArtPiece.artist}
         width={randomArtPiece.dimensions.width}

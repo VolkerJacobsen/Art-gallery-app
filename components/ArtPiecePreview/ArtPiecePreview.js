@@ -1,5 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 
 const Figure = styled.figure`
   margin-bottom: 30px;
@@ -19,6 +25,7 @@ const FigCaption = styled.figcaption`
 `;
 
 export default function ArtPiecePreview({
+  slug,
   image,
   title,
   artist,
@@ -33,15 +40,17 @@ export default function ArtPiecePreview({
   );
 
   return (
-    <Figure>
-      <StyledImage
-        alt={`${title} by ${artist}`}
-        src={image}
-        width={width}
-        height={height}
-        priority={priority}
-      />
-      <FigCaption>{FigCaptionText}</FigCaption>
-    </Figure>
+    <StyledLink href={`/art-pieces/${slug}`}>
+      <Figure>
+        <StyledImage
+          alt={`${title} by ${artist}`}
+          src={image}
+          width={width}
+          height={height}
+          priority={priority}
+        />
+        <FigCaption>{FigCaptionText}</FigCaption>
+      </Figure>
+    </StyledLink>
   );
 }
