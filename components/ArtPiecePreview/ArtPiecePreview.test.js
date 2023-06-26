@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import ArtPiecesPreview from "./ArtPiecesPreview";
+import ArtPiecePreview from "./ArtPiecePreview";
 import { piece } from "../../utils/data/TestData/";
 
 test("displays an image with a source attribute", () => {
   render(
-    <ArtPiecesPreview
+    <ArtPiecePreview
       image={piece.imageSource}
       title={piece.name}
       artist={piece.artist}
@@ -26,7 +26,7 @@ test("displays an image with a source attribute", () => {
 
 test("displays a title of an artPiece", () => {
   render(
-    <ArtPiecesPreview
+    <ArtPiecePreview
       image={piece.imageSource}
       title={piece.name}
       artist={piece.artist}
@@ -41,7 +41,7 @@ test("displays a title of an artPiece", () => {
 
 test("displays the artist of the artPiece", () => {
   render(
-    <ArtPiecesPreview
+    <ArtPiecePreview
       image={piece.imageSource}
       title={piece.name}
       artist={piece.artist}

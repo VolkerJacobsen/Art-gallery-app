@@ -16,20 +16,28 @@ const FigCaption = styled.figcaption`
   margin: 5px 30px 0 30px;
   line-height: 1.3;
   font-size: 0.8rem;
-  text-align: center;
 `;
 
-export default function Spotlight({ image, artist, width, height }) {
+export default function ArtPiecePreview({
+  image,
+  title,
+  artist,
+  width,
+  height,
+  priority,
+}) {
   return (
     <Figure>
       <StyledImage
+        alt={`${title} by ${artist}`}
         src={image}
-        alt={`An artpiece by ${artist}`}
         width={width}
         height={height}
-        priority={true}
+        priority={priority}
       />
-      <FigCaption>{artist}</FigCaption>
+      <FigCaption>
+        <strong>{title}</strong> by&nbsp;{artist}
+      </FigCaption>
     </Figure>
   );
 }
