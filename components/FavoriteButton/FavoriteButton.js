@@ -5,13 +5,14 @@ const FavIconContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 `;
 
 const SvgIsNotFavorite = styled.div`
   width: 40px;
   height: 40px;
-  position: relative;
-  top: 50px;
+  position: absolute;
+  top: 10px;
   right: 10px;
   fill: rgba(255, 255, 255, 0.7);
   stroke: black;
@@ -20,8 +21,8 @@ const SvgIsNotFavorite = styled.div`
 const SvgIsFavorite = styled.div`
   width: 40px;
   height: 40px;
-  position: relative;
-  top: 50px;
+  position: absolute;
+  top: 10px;
   right: 10px;
   fill: red;
   stroke: black;
