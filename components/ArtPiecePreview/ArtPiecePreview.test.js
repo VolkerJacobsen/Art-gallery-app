@@ -50,6 +50,6 @@ test("displays the artist of the artPiece", () => {
     />
   );
 
-  const artPieceTitle = screen.getByText(/steve johnson/i);
-  expect(artPieceTitle).toBeInTheDocument();
+  const artPieceArtist = screen.getByText(/steve johnson/i);
+  expect(artPieceArtist).toBeInTheDocument();
 });

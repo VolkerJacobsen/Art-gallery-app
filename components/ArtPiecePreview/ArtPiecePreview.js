@@ -33,12 +33,6 @@ export default function ArtPiecePreview({
   height,
   priority,
 }) {
-  const FigCaptionText = (
-    <>
-      <strong>{title}</strong> by&nbsp;{artist}
-    </>
-  );
-
   return (
     <StyledLink href={`/art-pieces/${slug}`}>
       <Figure>
@@ -49,7 +43,9 @@ export default function ArtPiecePreview({
           height={height}
           priority={priority}
         />
-        <FigCaption>{FigCaptionText}</FigCaption>
+        <FigCaption>
+          <strong>{title}</strong> by&nbsp;{artist}
+        </FigCaption>
       </Figure>
     </StyledLink>
   );
