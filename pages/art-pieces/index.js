@@ -9,12 +9,12 @@ const Main = styled.main`
   margin-bottom: var(--navigation-height);
 `;
 
-export default function ArtPiecesPage({ pieces }) {
+export default function ArtPiecesPage({ pieces, handleToggleFavorite }) {
   return (
     <Main>
       <DefaultHead pageTitle="Art Pieces" />
       <h1>Art Gallery</h1>
-      <ArtPieces pieces={pieces} />
+      <ArtPieces pieces={pieces} handleToggleFavorite={handleToggleFavorite} />
     </Main>
   );
 }
