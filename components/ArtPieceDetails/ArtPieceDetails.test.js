@@ -40,7 +40,9 @@ test("displays a title of an artPiece", () => {
     />
   );
 
-  const artPieceTitle = screen.getByText(/orange red and green/i);
+  const artPieceTitle = screen.getByText(
+    /^orange red and green abstract painting$/i
+  );
   expect(artPieceTitle).toBeInTheDocument();
 });
 
@@ -58,8 +60,8 @@ test("displays the artist of the artPiece", () => {
     />
   );
 
-  const artPieceTitle = screen.getByText(/steve johnson/i);
-  expect(artPieceTitle).toBeInTheDocument();
+  const artPieceArtist = screen.getByText(/steve johnson/i);
+  expect(artPieceArtist).toBeInTheDocument();
 });
 
 test("displays the year of the artPiece", () => {
@@ -94,6 +96,6 @@ test("displays the genre of the artPiece", () => {
     />
   );
 
-  const artPieceYear = screen.getByText(/^abstract painting$/i);
-  expect(artPieceYear).toBeInTheDocument();
+  const artPieceGenre = screen.getByText(/^abstract painting$/i);
+  expect(artPieceGenre).toBeInTheDocument();
 });

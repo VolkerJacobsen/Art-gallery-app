@@ -11,42 +11,45 @@ const Main = styled.main`
 `;
 
 const BackButton = styled.button`
-  background-color: white;
+  background-color: transparent;
   border: none;
   font-size: 3rem;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 export default function ArtPieceDetailPage({ pieces }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const piece = pieces.find((piece) => piece.slug === slug);
+  const { imageSource, name, artist, year, genre, dimensions } = pieces.find(
+    (piece) => piece.slug === slug
+  );
 
   function handleGoBack() {
-    router.back();
+    router.push("/art-pieces");
   }
 
   return (
     <>
-      <DefaultHead pageTitle={piece.name} />
+      <DefaultHead pageTitle={name} />
       <BackButton
         onClick={handleGoBack}
         title="Go back"
         aria-label="Go back to previous page"
-        role="button"
+        type="button"
       >
         &#8592;
       </BackButton>
       <Main>
         <ArtPieceDetails
-          image={piece.imageSource}
-          title={piece.name}
-          artist={piece.artist}
-          year={piece.year}
-          genre={piece.genre}
-          width={piece.dimensions.width}
-          height={piece.dimensions.height}
+          image={imageSource}
+          title={name}
+          artist={artist}
+          year={year}
+          genre={genre}
+          width={dimensions.width}
+          height={dimensions.height}
           priority={true}
         />
       </Main>

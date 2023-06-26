@@ -5,7 +5,6 @@ import FavoriteButton from "../FavoriteButton/FavoriteButton";
 const List = styled.ul`
   list-style: none;
 `;
-const ListItem = styled.li``;
 
 export default function ArtPieces({
   pieces,
@@ -15,7 +14,7 @@ export default function ArtPieces({
   return (
     <List>
       {pieces.map((piece, index) => (
-        <ListItem key={piece.slug}>
+        <li key={piece.slug}>
           <>
             <FavoriteButton
               isFavorite={piece.isFavorite}
@@ -32,7 +31,7 @@ export default function ArtPieces({
               priority={index < 2 ? true : null}
             />
           </>
-        </ListItem>
+        </li>
       ))}
     </List>
   );
