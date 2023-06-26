@@ -15,7 +15,6 @@ const Heading = styled.h2`
 `;
 
 const ArtistInfo = styled.p`
-  font-size: 1rem;
   margin: 0 20px 5px 20px;
 `;
 
@@ -34,12 +33,6 @@ export default function ArtPieceDetails({
   height,
   priority,
 }) {
-  const GenreInfoData = (
-    <>
-      <em>{genre}</em>
-    </>
-  );
-
   return (
     <>
       <StyledImage
@@ -49,11 +42,13 @@ export default function ArtPieceDetails({
         height={height}
         priority={priority}
       />
-      <Heading>{`${title}`}</Heading>
+      <Heading>{title}</Heading>
       <ArtistInfo>
         {artist} ({year})
       </ArtistInfo>
-      <GenreInfo>{GenreInfoData}</GenreInfo>
+      <GenreInfo>
+        <em>{genre}</em>
+      </GenreInfo>
     </>
   );
 }

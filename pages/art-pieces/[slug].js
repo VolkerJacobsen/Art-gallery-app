@@ -11,10 +11,11 @@ const Main = styled.main`
 `;
 
 const BackButton = styled.button`
-  background-color: white;
+  background-color: transparent;
   border: none;
   font-size: 3rem;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 export default function ArtPieceDetailPage({ pieces }) {
